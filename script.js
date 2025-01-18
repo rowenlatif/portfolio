@@ -67,6 +67,23 @@ window.addEventListener('resize', updateSlides);
 
 /* 
 --------------------------------------------------------------------------------------------------------------------------------------------- 
-GALLERY.HTML
+CONTACT.HTML
 --------------------------------------------------------------------------------------------------------------------------------------------- 
 */
+document.getElementById('sendMessage').addEventListener('click', async () => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const response = await fetch('https://your-backend-api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+    });
+
+    if (response.ok) {
+        alert('Message sent successfully!');
+    } else {
+        alert('Failed to send message. Please try again.');
+    }
+});
