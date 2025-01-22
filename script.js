@@ -70,23 +70,23 @@ PROJECTS.HTML
 CONTACT.HTML
 --------------------------------------------------------------------------------------------------------------------------------------------- 
 */
-document.getElementById('sendMessage').addEventListener('click', async () => {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+// document.getElementById('sendMessage').addEventListener('click', async () => {
+//     const name = document.getElementById('name').value;
+//     const email = document.getElementById('email').value;
+//     const message = document.getElementById('message').value;
 
-    const response = await fetch('https://your-backend-api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-    });
+//     const response = await fetch('https://your-backend-api/send-email', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ name, email, message })
+//     });
 
-    if (response.ok) {
-        alert('Message sent successfully!');
-    } else {
-        alert('Failed to send message. Please try again.');
-    }
-});
+//     if (response.ok) {
+//         alert('Message sent successfully!');
+//     } else {
+//         alert('Failed to send message. Please try again.');
+//     }
+// });
 
 
 
@@ -96,47 +96,31 @@ document.getElementById('sendMessage').addEventListener('click', async () => {
 VARIOUS PROJECTS
 --------------------------------------------------------------------------------------------------------------------------------------------- 
 */
-document.addEventListener('DOMContentLoaded', () => {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const slideshow = document.querySelector('.slideshow');
+let slideIndex = 1;
+showSlides(slideIndex);
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
-    }
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length; // Loop back to the first slide
-        showSlide(currentSlide);
-    }
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Loop back to the last slide
-        showSlide(currentSlide);
-    }
-
-    function handleSlideClick(event) {
-        const clickX = event.clientX; // X-coordinate of the click
-        const slideshowRect = slideshow.getBoundingClientRect(); // Get slideshow bounds
-        const slideWidth = slideshowRect.width; // Width of the slideshow container
-
-        if (clickX < slideshowRect.left + slideWidth / 2) {
-            // Left half clicked
-            prevSlide();
-        } else {
-            // Right half clicked
-            nextSlide();
-        }
-    }
-
-    // Attach click event listener to the slideshow container
-    slideshow.addEventListener('click', handleSlideClick);
-
-    // Initialize the slideshow
-    showSlide(currentSlide);
-});
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
