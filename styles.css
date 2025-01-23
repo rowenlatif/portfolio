@@ -263,19 +263,15 @@ main h1 {
 }
 
 
+
 /* CONTACT */
-.contact-form {
-    margin-top: 20px;
+.contact-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    align-items: center; 
+    gap: 5px; 
+    max-width: 1200px;
+    margin: 0 auto; 
 }
 
 .contact-form .form-group {
@@ -283,16 +279,17 @@ main h1 {
     flex-direction: column;
 }
 
-.contact-description {
-    text-align: center;
-    font-size: 18px;
-    margin: 20px auto;
-    color: #333; 
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 650px;
 }
 
 .contact-form label {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-top: 5px;
     font-weight: bold;
 }
 
@@ -303,6 +300,17 @@ main h1 {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+.contact-form textarea {
+    font-family: 'Times New Roman', serif;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none; 
+    width: 95%;
+    height: 150px; 
 }
 
 .contact-form input:focus, 
@@ -321,6 +329,7 @@ main h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .submit-btn:hover {
@@ -347,8 +356,33 @@ main h1 {
     color: #0056b3;
 }
 
+.contact-linkButtonsContainer {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    gap: 40px; 
+    width: 450px; 
+    height: 100%; 
+    
+}
 
+.contact-linkButtons {
+    padding: 10px 70px; 
+    font-size: 16px; 
+    color: #fff;
+    background-color: #85b2e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; 
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.contact-linkButtons:hover {
+    background-color: #0056b3; 
+}
 
 /* PROJECT DETAILS PAGE */
 .main-container {
@@ -377,6 +411,8 @@ main h1 {
 }
 
 .slideshow-container img {
+    padding: 0;
+    margin: 0;
     border-radius: 15px;
 }
 
