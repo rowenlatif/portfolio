@@ -173,10 +173,8 @@ main h1 {
 }
 
 .project img {
-    width: 80%;
+    width: 110%;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
 }
 
 .project h2 {
@@ -418,6 +416,10 @@ main h1 {
 
 .mySlides {
     display: none;
+}
+
+.mySlides video {
+    border-radius: 20px;
 }
   
 .prev, .next {
